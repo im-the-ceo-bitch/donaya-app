@@ -4,14 +4,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        'payflo-purple': '#7928CA',
-        'payflo-blue': '#0070F3',
-        'payflo-pink': '#FF4D4D',
-        'payflo-gray': '#F4F7FA',
-        'payflo-dark': '#111111',
+        'donaya-turquoise': '#2EB386',
+        'donaya-orange': '#FAA22B',
+        'donaya-orange-dark': '#FF9500',
+        'donaya-gray': '#F4F7FA',
+        'donaya-dark': '#111111',
       },
       fontFamily: {
-        sans: ['Inter Variable', 'sans-serif'],
+        sans: ['Nunito', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out forwards',

@@ -1,0 +1,41 @@
+---
+import Button from '../atoms/Button.astro';
+import Input from '../atoms/Input.astro';
+
+interface Props {
+  amounts: number[];
+  selectedAmount?: number;
+  customAmount?: string;
+}
+
+const { amounts = [2, 10, 30, 50], selectedAmount = 10, customAmount = '' } = Astro.props;
+---
+
+<div class="space-y-4">
+  <div class="grid grid-cols-2 gap-3">
+    {amounts.map(amount => (
+      <button 
+        class={`p-4 rounded-lg border-2 transition-all duration-200 ${
+          selectedAmount === amount 
+            ? 'border-donaya-orange bg-donaya-orange text-white' 
+            : 'border-gray-200 bg-white text-gray-700 hover:border-donaya-orange hover:bg-donaya-orange/5'
+        }`}
+        data-amount={amount}
+      >
+        <span class="text-lg font-semibold">USD {amount}</span>
+      </button>
+    ))}
+  </div>
+  
+  <div class="flex gap-3">
+    <Button variant="outline" size="md" class="flex-1">
+      Otro
+    </Button>
+    <Input 
+      type="number" 
+      placeholder="Ingresa el monto (ej. 2.50)" 
+      value={customAmount}
+      class="flex-1"
+    />
+  </div>
+</div>

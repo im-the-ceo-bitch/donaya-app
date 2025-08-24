@@ -1,0 +1,165 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="bg-donaya-orange rounded-xl p-4 text-white relative overflow-hidden h-full flex flex-col justify-center">
+  <h2 class="text-lg font-bold mb-4 text-center">
+    Tu impacto en tiempo real
+  </h2>
+
+  <!-- Estadísticas principales -->
+  <div class="grid grid-cols-3 gap-2 mb-6">
+    <div class="text-center">
+      <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+        <Icon name="ph:users-three-duotone" class="w-6 h-6 text-white" />
+      </div>
+      <div class="text-base font-bold" id="people-fed">10</div>
+      <div class="text-xs opacity-90">Personas</div>
+    </div>
+    
+    <div class="text-center">
+      <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+        <Icon name="ph:calendar-duotone" class="w-6 h-6 text-white" />
+      </div>
+      <div class="text-base font-bold" id="days-impact">30</div>
+      <div class="text-xs opacity-90">Días</div>
+    </div>
+    
+    <div class="text-center">
+      <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+        <Icon name="ph:heart-duotone" class="w-6 h-6 text-white" />
+      </div>
+      <div class="text-base font-bold" id="annual-projection">120</div>
+      <div class="text-xs opacity-90">Anual</div>
+    </div>
+  </div>
+
+  <!-- Barras de progreso simplificadas -->
+  <div class="space-y-3 mb-4">
+    <div>
+      <div class="flex items-center justify-between mb-1">
+        <div class="flex items-center gap-2">
+          <Icon name="ph:heart-duotone" class="w-4 h-4 text-white" />
+          <span class="text-sm font-medium">Nutrición</span>
+        </div>
+        <span class="text-xs" id="nutrition-percent">75%</span>
+      </div>
+      <div class="w-full bg-white/20 rounded-full h-2">
+        <div class="bg-white h-2 rounded-full transition-all duration-1000 ease-out" id="nutrition-bar" style="width: 75%"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex items-center justify-between mb-1">
+        <div class="flex items-center gap-2">
+          <Icon name="ph:graduation-cap-duotone" class="w-4 h-4 text-white" />
+          <span class="text-sm font-medium">Educación</span>
+        </div>
+        <span class="text-xs" id="education-percent">90%</span>
+      </div>
+      <div class="w-full bg-white/20 rounded-full h-2">
+        <div class="bg-white h-2 rounded-full transition-all duration-1000 ease-out" id="education-bar" style="width: 90%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Impacto monetario -->
+  <div class="bg-white rounded-lg p-3 text-center">
+    <div class="flex items-center justify-center gap-2 mb-2">
+      <Icon name="ph:currency-dollar-duotone" class="w-5 h-5 text-donaya-orange" />
+      <div class="text-xl font-bold text-donaya-orange" id="impact-amount">1</div>
+    </div>
+    <div class="text-sm font-semibold text-donaya-orange">Dólar = 1 día de alimentación</div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    let currentAmount = 10;
+    let currentFrequency = 'monthly';
+
+    // Escuchar cambios en la donación
+    document.addEventListener('donation-updated', (e) => {
+      const { amount, frequency } = e.detail;
+      currentAmount = amount;
+      currentFrequency = frequency;
+      updateImpact();
+    });
+
+    function updateImpact() {
+      // Calcular impacto basado en el monto y frecuencia
+      const multiplier = currentFrequency === 'monthly' ? 12 : 1;
+      const peopleFed = Math.floor(currentAmount * multiplier);
+      const daysImpact = currentAmount * multiplier * 30;
+      const annualProjection = peopleFed * 12;
+
+      // Actualizar estadísticas con animación
+      animateNumber('people-fed', peopleFed);
+      animateNumber('days-impact', daysImpact);
+      animateNumber('annual-projection', annualProjection);
+      animateNumber('impact-amount', currentAmount);
+
+      // Actualizar barras de progreso
+      const nutritionPercent = Math.min(75 + (currentAmount * 5), 100);
+      const educationPercent = Math.min(90 + (currentAmount * 2), 100);
+
+      animateProgressBar('nutrition-bar', nutritionPercent);
+      animateProgressBar('education-bar', educationPercent);
+      
+      document.getElementById('nutrition-percent').textContent = `${nutritionPercent}%`;
+      document.getElementById('education-percent').textContent = `${educationPercent}%`;
+    }
+
+    function animateNumber(elementId, targetValue) {
+      const element = document.getElementById(elementId);
+      const currentValue = parseInt(element.textContent) || 0;
+      const increment = (targetValue - currentValue) / 20;
+      let current = currentValue;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if ((increment > 0 && current >= targetValue) || (increment < 0 && current <= targetValue)) {
+          element.textContent = targetValue;
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current);
+        }
+      }, 50);
+    }
+
+    function animateProgressBar(elementId, targetPercent) {
+      const bar = document.getElementById(elementId);
+      const currentWidth = parseInt(bar.style.width) || 0;
+      const increment = (targetPercent - currentWidth) / 20;
+      let current = currentWidth;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if ((increment > 0 && current >= targetPercent) || (increment < 0 && current <= targetPercent)) {
+          bar.style.width = `${targetPercent}%`;
+          clearInterval(timer);
+        } else {
+          bar.style.width = `${current}%`;
+        }
+      }, 50);
+    }
+
+    // Animación inicial de las barras
+    const progressBars = document.querySelectorAll('.bg-white.h-2');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bar = entry.target as HTMLElement;
+          const width = bar.style.width;
+          bar.style.width = '0%';
+          
+          setTimeout(() => {
+            bar.style.width = width;
+          }, 200);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    progressBars.forEach(bar => observer.observe(bar));
+  });
+</script>

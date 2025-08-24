@@ -1,145 +1,93 @@
-# Payflo.dev - Astro 5.7 Implementation
+# Donaya - Payroll Solution Theme
 
-This is a modern reimplementation of the [salsa.dev](https://www.salsa.dev/) website using Astro 5.7, following the latest best practices.
+Un tema moderno y elegante para plataformas de nómina basado en Astro, personalizado con la marca Donaya.
 
-## Features
+## 🎨 Personalización
 
-- Built with Astro 5.7
-- Responsive design using Tailwind CSS
-- Smooth & subtle micro-interactions
-- Optimized images with Astro's built-in image optimization
-- Modern SEO practices
-- Accessibility-friendly components
-- Fast page transitions with View Transitions API
+Este proyecto ha sido personalizado con:
 
-[<img width="609" height="500" alt="home-page" src="https://github.com/user-attachments/assets/1e311553-3314-4c40-96f6-50daa5cf36f0" />](https://payflo.corytrimm.com)
+- **Logotipo**: SVG personalizado con los colores de la marca Donaya
+- **Paleta de colores**:
+  - Turquesa: `#2EB386`
+  - Naranja: `#FAA22B` 
+  - Naranja oscuro: `#FF9500`
+  - Gris: `#F4F7FA`
+  - Oscuro: `#111111`
 
-## Project Structure
+## 🚀 Características
 
-```
-/
-├── public/               # Static assets like images and favicons
-├── src/
-│   ├── assets/           # Images processed by Astro
-│   ├── components/       # Reusable UI components
-│   ├── layouts/          # Page layouts
-│   ├── pages/            # Page components and routes
-│   ├── scripts/          # Client-side JavaScript
-│   └── styles/           # Global CSS and utility styles
-├── .gitignore
-├── astro.config.mjs      # Astro configuration
-├── package.json          # Project dependencies
-├── tailwind.config.mjs   # Tailwind CSS configuration
-└── tsconfig.json         # TypeScript configuration
-```
+- **Diseño moderno**: Interfaz limpia y profesional
+- **Responsive**: Optimizado para todos los dispositivos
+- **Animaciones suaves**: Transiciones y efectos visuales elegantes
+- **SEO optimizado**: Meta tags y estructura semántica
+- **Accesibilidad**: Cumple con estándares WCAG
+- **Performance**: Carga rápida y optimizada
 
-## Getting Started
+## 🛠️ Tecnologías
 
-### Prerequisites
+- **Astro**: Framework web moderno
+- **Tailwind CSS**: Framework de CSS utility-first
+- **TypeScript**: Tipado estático
+- **Iconify**: Iconos vectoriales
+- **Sass**: Preprocesador CSS
 
-- Node.js (v18.14.1 or higher)
-- npm or yarn or pnpm
-
-### Installation
-
-1. Clone the repository:
+## 📦 Instalación
 
 ```bash
-git clone https://github.com/ctrimm/astro-payroll-solution-theme.git
-cd astro-payroll-solution-theme
-```
+# Clonar el repositorio
+git clone <repository-url>
+cd donaya
 
-2. Install dependencies:
-
-```bash
+# Instalar dependencias
 npm install
-# or
-yarn install
-# or
-pnpm install
-```
 
-3. Run the development server:
-
-```bash
+# Ejecutar en modo desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
-4. Open your browser and navigate to `http://localhost:4321`
-
-## Building for Production
-
-To build the site for production, run:
-
-```bash
+# Construir para producción
 npm run build
-# or
-yarn build
-# or
-pnpm build
-```
 
-The build output will be in the `dist/` directory.
-
-To preview the production build locally:
-
-```bash
+# Vista previa de producción
 npm run preview
-# or
-yarn preview
-# or
-pnpm preview
 ```
 
-## Customization
+## 🎯 Uso
 
-### Styling
+El proyecto incluye:
 
-The project uses Tailwind CSS for styling. You can customize the styles by modifying:
+- **Página principal**: Landing page con hero section, características y testimonios
+- **Componentes reutilizables**: Header, Footer, Hero, Features, etc.
+- **Páginas adicionales**: About, Blog, Login, etc.
+- **Estilos personalizados**: Colores y tipografía de la marca
 
-- `tailwind.config.mjs` - For theme configuration
-- `src/styles/global.css` - For global styles and custom utility classes
+## 🎨 Personalización adicional
 
-### Content
+Para personalizar más el proyecto:
 
-Update the content of the site by modifying the components in the `src/components/` directory and the pages in the `src/pages/` directory.
+1. **Colores**: Edita `tailwind.config.mjs`
+2. **Logotipo**: Reemplaza `src/assets/logo.svg`
+3. **Contenido**: Modifica los componentes en `src/components/`
+4. **Estilos**: Ajusta `src/styles/global.css`
 
-### Images
+## 📱 Responsive Design
 
-- Place static images that don't need processing in the `public/` directory
-- Place images that need optimization in the `src/assets/` directory
+El tema está optimizado para:
+- Móviles (320px+)
+- Tablets (768px+)
+- Desktop (1024px+)
+- Pantallas grandes (1280px+)
 
-## Adding New Pages
+## 🔧 Scripts disponibles
 
-To add a new page, create a new `.astro` file in the `src/pages/` directory. The file path will determine the route.
+- `npm run dev`: Servidor de desarrollo
+- `npm run build`: Construcción para producción
+- `npm run preview`: Vista previa de producción
+- `npm run astro`: Comandos de Astro
 
-For example:
-- `src/pages/blog.astro` will be accessible at `/blog`
-- `src/pages/blog/[slug].astro` will create dynamic routes for blog posts
+## 📄 Licencia
 
-## Animations
+Este proyecto está basado en el template de Astro Payroll Solution Theme y ha sido personalizado para Donaya.
 
-The site uses a combination of:
+---
 
-1. CSS animations defined in `src/styles/global.css`
-2. Intersection Observer for triggering animations on scroll, implemented in `src/scripts/animations.js`
-
-## Deployment
-
-This Astro site can be deployed to any static hosting service like:
-
-- Netlify
-- Vercel
-- GitHub Pages
-- Cloudflare Pages
-- AWS S3 + CloudFront
-
-Follow the respective platform's documentation for deployment instructions.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
+Desarrollado con ❤️ para Donaya

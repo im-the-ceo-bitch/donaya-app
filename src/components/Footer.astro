@@ -3,23 +3,23 @@ import { Image } from 'astro:assets';
 import logoSrc from '../assets/logo.svg';
 
 const companyLinks = [
-  { name: 'About Us', href: '/about-us' },
-  { name: 'Careers', href: '/careers' },
-  { name: 'Contact', href: '/contact' },
-  { name: 'Blog', href: '/blog' },
+  { name: 'Inicio', href: '#hero' },
+  { name: 'Servicios', href: '#features' },
+  { name: 'Contacto', href: '#contact' },
+  { name: 'Integraciones', href: '#integrations' },
 ];
 
 const resourceLinks = [
-  { name: 'Documentation', href: '/documentation' },
-  { name: 'API Reference', href: '/documentation/api-reference' },
-  { name: 'Tutorials', href: '/tutorials' },
-  { name: 'Case Studies', href: '/case-studies' },
+  { name: 'Cómo funciona', href: '#how-it-works' },
+  { name: 'Casos de éxito', href: '#success' },
+  { name: 'Testimonios', href: '#testimonials' },
+  { name: 'Recursos', href: '#resources' },
 ];
 
 const legalLinks = [
-  { name: 'Privacy Policy', href: '/privacy-policy' },
-  { name: 'Terms of Use', href: '/terms-of-use' },
-  { name: 'Cookie Policy', href: '/cookie-policy' },
+  { name: 'Política de Privacidad', href: '#contact' },
+  { name: 'Términos de Uso', href: '#contact' },
+  { name: 'Política de Cookies', href: '#contact' },
 ];
 
 const socialLinks = [
@@ -36,16 +36,16 @@ const socialLinks = [
   </div>
   
   <!-- Animated gradient background -->
-  <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-payflo-purple via-payflo-blue to-payflo-purple bg-[length:200%_auto] animate-gradient-x"></div>
+  <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-donaya-turquoise via-donaya-orange to-donaya-orange-dark bg-[length:200%_auto] animate-gradient-x"></div>
   
   <div class="container-custom relative">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-gray-800">
       <div class="lg:col-span-2">
-        <a href="/" class="inline-block transition-transform duration-300 hover:scale-105" aria-label="Payflo home">
-          <Image src={logoSrc} alt="Payflo Logo" width={120} height={40} class="brightness-0 invert" />
+        <a href="#hero" class="inline-block transition-transform duration-300 hover:scale-105" aria-label="Donaya home">
+          <Image src={logoSrc} alt="Donaya Logo" width={150} height={52} class="brightness-0 invert" />
         </a>
         <p class="mt-4 text-gray-400 max-w-md">
-          Payflo makes it fast and easy for SaaS platforms to build and embed payroll using our infrastructure, APIs and UI components.
+          Donaya conecta fundaciones, asociaciones e iglesias con mecanismos de pago rápidos para que cada donación genere empatía e impacto real.
         </p>
         <div class="mt-6 flex space-x-4">
           {socialLinks.map(social => (
@@ -131,7 +131,7 @@ const socialLinks = [
     </div>
     
     <div class="pt-8 text-center text-gray-400 text-sm">
-      <p class="hover:text-gray-300 transition-colors duration-300">&copy; {new Date().getFullYear()} Payflo Software Inc. All rights reserved.</p>
+      <p class="hover:text-gray-300 transition-colors duration-300">&copy; {new Date().getFullYear()} Donaya Software Inc. All rights reserved.</p>
     </div>
   </div>
 </footer>

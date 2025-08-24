@@ -12,7 +12,7 @@ interface Props {
 
 const { 
   title, 
-  description = "Payflo makes it fast and easy for SaaS platforms to build and embed payroll using our infrastructure, APIs and UI components."
+  description = "Donaya conecta fundaciones, asociaciones e iglesias con mecanismos de pago rápidos para que cada donación genere empatía e impacto real."
 } = Astro.props;
 
 // Preload critical assets
@@ -33,15 +33,16 @@ const faviconImg = await getImage({src: '/favicon.png', width: 32, height: 32});
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     
     <!-- Structured data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Payflo",
-        "url": "https://payflo.dev",
-        "logo": "https://payflo.dev/logo.png",
+        "name": "Donaya",
+        "url": "https://donaya.dev",
+        "logo": "https://donaya.dev/logo.png",
         "sameAs": [
           "https://twitter.com/payflo_dev",
           "https://www.linkedin.com/company/payflo-dev"
@@ -54,14 +55,14 @@ const faviconImg = await getImage({src: '/favicon.png', width: 32, height: 32});
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content="https://payflo.dev/og-image.jpg" />
+    <meta property="og:image" content="https://donaya.dev/og-image.jpg" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@payflo_dev" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://payflo.dev/twitter-image.jpg" />
+    <meta name="twitter:image" content="https://donaya.dev/twitter-image.jpg" />
   </head>
   <body class="min-h-screen flex flex-col">
     <a href="#main-content" class="skip-link">Skip to main content</a>

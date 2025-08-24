@@ -1,62 +1,47 @@
 ---
 import { Image } from 'astro:assets';
 import heroImage from '../assets/hero-dashboard.png';
+import DonationForm from './organisms/DonationForm.astro';
+import ImpactVisualization from './organisms/ImpactVisualization.astro';
 ---
 
-<section class="pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden relative">
+<section class="pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden relative">
   <!-- Subtle background pattern with parallax effect -->
   <div class="absolute inset-0 opacity-5 parallax" data-speed="0.2">
     <div class="absolute inset-0 bg-repeat" style="background-image: url('/grid-pattern.svg');"></div>
   </div>
   
   <div class="container-custom relative">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <!-- Primera columna - Contenido principal (más ancha) -->
+      <div class="lg:col-span-6">
         <h1 class="animate-on-scroll delay-0 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-          Launch <span class="gradient-text">Payroll</span> Fast
+          Un <span class="gradient-text">corazón</span> en cada transacción
         </h1>
         <p class="animate-on-scroll delay-1 mt-6 text-xl text-gray-600 max-w-lg">
-          We make it fast and easy for SaaS platforms to build and embed payroll using our infrastructure, APIs and UI components.
+          Conectamos <span class="font-semibold text-donaya-orange">fundaciones, asociaciones</span> e <span class="font-semibold text-donaya-orange">iglesias</span> con mecanismos de pago rápidos para que cada donación genere <span class="font-semibold text-donaya-turquoise">empatía</span> e <span class="font-semibold text-donaya-turquoise">impacto real</span>.
         </p>
-        <div class="animate-on-scroll delay-2 mt-8 flex flex-col sm:flex-row gap-4">
-          <a href="/book-demo" class="btn btn-primary">Book a Demo</a>
-          <a href="/documentation" class="btn btn-secondary">Read Documentation</a>
-        </div>
-        <div class="animate-on-scroll delay-3 mt-8 flex items-center space-x-4">
-          <div class="flex -space-x-2" role="img" aria-label="Customer testimonial avatars">
-            <img 
-              src="/testimonial-avatar-1.jpg" 
-              alt="Sarah from TechCorp" 
-              class="w-10 h-10 rounded-full border-2 border-white transition-transform duration-300 hover:scale-110 hover:z-10"
-            />
-            <img 
-              src="/testimonial-avatar-2.jpg" 
-              alt="Michael from DataFlow" 
-              class="w-10 h-10 rounded-full border-2 border-white transition-transform duration-300 hover:scale-110 hover:z-10"
-            />
-            <img 
-              src="/testimonial-avatar-3.jpg" 
-              alt="Emma from CloudSuite" 
-              class="w-10 h-10 rounded-full border-2 border-white transition-transform duration-300 hover:scale-110 hover:z-10"
-            />
-          </div>
-          <div class="text-sm text-gray-600">
-            Trusted by innovative SaaS platforms
-          </div>
+        <div class="animate-on-scroll delay-2 mt-8">
+          <a href="#contact" class="btn btn-primary">Transforma tu organización</a>
         </div>
       </div>
       
-      <div class="animate-on-scroll delay-4">
-        <div class="relative hover-zoom">
-          <div class="absolute -inset-0.5 bg-gradient-to-r from-payflo-purple to-payflo-blue rounded-xl blur opacity-30 transition-opacity duration-300 hover:opacity-50"></div>
-          <div class="relative bg-white rounded-xl shadow-xl overflow-hidden">
-            <Image 
-              src={heroImage} 
-              alt="Payflo Dashboard" 
-              class="w-full h-auto transition-all duration-500"
-              width={700}
-              height={500}
-            />
+      <!-- Segunda columna - Formulario de donación (más estrecha) -->
+      <div class="lg:col-span-3 animate-on-scroll delay-4" style="width: 320px;">
+        <div class="relative h-full">
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-donaya-turquoise to-donaya-orange rounded-xl blur opacity-30 transition-opacity duration-300 hover:opacity-50"></div>
+          <div class="relative h-full flex items-center">
+            <DonationForm />
+          </div>
+        </div>
+      </div>
+
+      <!-- Tercera columna - Visualización de impacto (más estrecha) -->
+      <div class="lg:col-span-3 animate-on-scroll delay-5 ml-auto">
+        <div class="relative h-full">
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-donaya-turquoise to-donaya-orange rounded-xl blur opacity-30 transition-opacity duration-300 hover:opacity-50"></div>
+          <div class="relative h-full flex items-center">
+            <ImpactVisualization />
           </div>
         </div>
       </div>

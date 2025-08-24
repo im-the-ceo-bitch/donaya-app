@@ -1,0 +1,35 @@
+---
+interface Props {
+  id: string;
+  isComplete: boolean;
+  position: { x: number; y: number };
+  size: number;
+  class?: string;
+}
+
+const { id, isComplete, position, size, class: className = '' } = Astro.props;
+---
+
+<div 
+  id={id}
+  class={`puzzle-piece absolute transition-all duration-500 ${className}`}
+  style={`
+    left: ${position.x}%;
+    top: ${position.y}%;
+    width: ${size}px;
+    height: ${size}px;
+    opacity: ${isComplete ? '1' : '0.3'};
+    transform: ${isComplete ? 'scale(1)' : 'scale(0.8)'};
+  `}
+  data-piece-id={id}
+  data-complete={isComplete}
+>
+  <div class="w-full h-full bg-donaya-orange rounded-lg border-2 border-white shadow-lg flex items-center justify-center">
+    {isComplete && (
+      <div class="text-white text-xs font-bold">
+        ✓
+      </div>
+    )}
+  </div>
+</div>
+

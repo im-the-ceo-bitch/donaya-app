@@ -3,18 +3,100 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Partners from '../components/Partners.astro';
 import Features from '../components/Features.astro';
+import ResourceManagement from '../components/ResourceManagement.astro';
+import Integrations from '../components/Integrations.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import Testimonials from '../components/Testimonials.astro';
 import CTASection from '../components/CTASection.astro';
 import FAQ from '../components/FAQ.astro';
 ---
 
-<Layout title="Payflo - Launch Payroll Fast">
-  <Hero />
-  <Partners />
-  <Features />
-  <HowItWorks />
-  <Testimonials />
-  <FAQ />
-  <CTASection />
+<Layout title="Donaya - Un corazón en cada transacción">
+  <section id="hero">
+    <Hero />
+  </section>
+  <section id="partners">
+    <Partners />
+  </section>
+  <section id="features">
+    <Features />
+  </section>
+  <section id="resources">
+    <ResourceManagement />
+  </section>
+  <section id="integrations">
+    <Integrations />
+  </section>
+  <section id="how-it-works">
+    <HowItWorks />
+  </section>
+  <section id="testimonials">
+    <Testimonials />
+  </section>
+  <section id="contact">
+    <FAQ />
+  </section>
+  <section id="success">
+    <CTASection />
+  </section>
 </Layout>
+
+<!-- Botón para subir -->
+<button 
+  id="scroll-to-top" 
+  class="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-donaya-turquoise to-donaya-orange text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 pointer-events-none transform translate-y-10"
+  aria-label="Subir al inicio"
+>
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+  </svg>
+</button>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const scrollToTopBtn = document.getElementById('scroll-to-top');
+    
+    if (scrollToTopBtn) {
+      // Mostrar/ocultar botón basado en scroll
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
+          scrollToTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        } else {
+          scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
+          scrollToTopBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        }
+      });
+      
+      // Scroll suave al hacer clic
+      scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+    
+    // Scroll suave para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const href = this.getAttribute('href');
+        const target = document.querySelector(href);
+        
+        if (target) {
+          const headerHeight = 80; // Altura del header
+          const targetPosition = target.offsetTop - headerHeight - 20; // 20px extra de margen
+          
+          window.scrollTo({
+            top: Math.max(0, targetPosition),
+            behavior: 'smooth'
+          });
+          
+          // Actualizar URL sin recargar la página
+          history.pushState(null, null, href);
+        }
+      });
+    });
+  });
+</script>

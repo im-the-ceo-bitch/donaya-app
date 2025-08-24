@@ -1,0 +1,521 @@
+---
+---
+
+<section class="py-20 pb-32 bg-gradient-to-b from-white to-donaya-gray relative overflow-hidden">
+  <!-- Subtle background pattern -->
+  <div class="absolute inset-0 opacity-5 parallax" data-speed="0.1">
+    <div class="absolute inset-0 bg-repeat" style="background-image: url('/grid-pattern.svg');"></div>
+  </div>
+  
+  <div class="container-custom relative">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="animate-on-scroll delay-0 text-3xl md:text-4xl font-bold mb-6">
+        Integraciones de Pago
+      </h2>
+      <p class="animate-on-scroll delay-1 text-xl text-gray-600">
+        Conectamos con los principales proveedores de pago para ofrecer múltiples opciones de donación, desde pagos internacionales hasta transferencias locales con QR.
+      </p>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      
+      <!-- Left Column - Dynamic Content -->
+      <div class="animate-on-scroll delay-2 relative min-h-[600px]">
+        <!-- PayPal Form -->
+        <div id="paypal-content" class="content-section">
+          <h3 class="text-2xl font-bold mb-6">Pago con PayPal</h3>
+          <p class="text-lg text-gray-600 mb-8">
+            Realiza donaciones internacionales de forma segura con PayPal. Aceptamos pagos desde cualquier parte del mundo.
+          </p>
+          
+          <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2">Monto de donación</label>
+              <input type="number" placeholder="Ingresa el monto" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <input type="email" placeholder="tu@email.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <button class="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
+              <img src="/logos/icon_paypal.svg" alt="PayPal" class="h-6 w-auto">
+              <span>Pay with PayPal</span>
+            </button>
+            
+            <p class="text-xs text-gray-500 mt-3 text-center">Powered by PayPal</p>
+          </div>
+        </div>
+
+        <!-- PagoPlux Form -->
+        <div id="pagoplux-content" class="content-section hidden">
+          <h3 class="text-2xl font-bold mb-6">Pago con PagoPlux</h3>
+          <p class="text-lg text-gray-600 mb-8">
+            Procesa pagos con tarjetas de crédito y débito en Ecuador de forma segura y rápida.
+          </p>
+          
+          <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2">Monto</label>
+              <input type="number" placeholder="USD 2" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <input type="email" placeholder="asd@gmail.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
+              <input type="tel" placeholder="1010101010" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
+              <img src="/logos/plux.png" alt="PagoPlux" class="h-6 w-auto">
+              <span>Pagar ahora</span>
+            </button>
+            
+            <p class="text-xs text-gray-500 mt-3 text-center">Botón seguro de PagoPlux</p>
+          </div>
+        </div>
+
+        <!-- Payphone Form -->
+        <div id="payphone-content" class="content-section hidden">
+          <h3 class="text-2xl font-bold mb-6">Pago con Payphone</h3>
+          <p class="text-lg text-gray-600 mb-8">
+            Paga con la app móvil o tarjetas de crédito/débito de forma rápida y segura.
+          </p>
+          
+          <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2">Método de pago</label>
+              <div class="grid grid-cols-2 gap-3">
+                <button class="payphone-method-btn p-3 border-2 border-orange-500 bg-white rounded-lg flex items-center gap-2" data-method="card">
+                  <svg class="w-6 h-4 text-gray-600" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                  </svg>
+                  <span class="text-sm">Tarjeta</span>
+                </button>
+                <button class="payphone-method-btn p-3 border-2 border-gray-300 bg-gray-50 rounded-lg flex items-center gap-2" data-method="app">
+                  <img src="/logos/icon_payphone.avif" alt="Payphone App" class="w-6 h-6">
+                  <span class="text-sm">App</span>
+                </button>
+              </div>
+            </div>
+            
+            <div id="card-payment-section">
+              <div class="mb-6">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Número de tarjeta</label>
+                <div class="relative">
+                  <input id="card-number" type="text" placeholder="1234 5678 9012 3456" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 pr-12">
+                  <div class="absolute right-3 top-1/2 transform -translate-y-1/2">
+                    <div id="card-type" class="w-8 h-5 bg-gray-200 rounded flex items-center justify-center">
+                      <span class="text-xs text-gray-500">?</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Vencimiento</label>
+                  <input id="card-expiry" type="text" placeholder="MM/AA" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">CVV</label>
+                  <input id="card-cvv" type="text" placeholder="CVV" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <input type="email" placeholder="Ingresa un correo electrónico" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+            </div>
+            
+            <div class="border-t pt-4 mb-4">
+              <div class="flex justify-between items-center">
+                <span class="font-semibold">TOTAL:</span>
+                <span class="font-bold text-orange-500">USD 2.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DeUna Form -->
+        <div id="deuna-content" class="content-section hidden">
+          <h3 class="text-2xl font-bold mb-6">Pago con DeUna</h3>
+          <p class="text-lg text-gray-600 mb-8">
+            Escanea el código QR para completar tu donación de forma automática y segura.
+          </p>
+          
+          <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-200 text-center">
+            <h4 class="text-lg font-semibold text-blue-600 mb-4">
+              ¡Escanea el código QR para completar tu donación!
+            </h4>
+            
+            <div class="border-2 border-orange-500 rounded-lg p-6 mb-6 inline-block">
+              <div class="w-32 h-32 bg-gray-200 rounded flex items-center justify-center">
+                <div class="text-center">
+                  <img id="qr-code" class="w-28 h-28 mx-auto" alt="QR Code">
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-6">
+              <div class="text-lg font-semibold">
+                Total a pagar: <span class="text-orange-500">$2</span>
+              </div>
+            </div>
+            
+            <div class="text-sm text-gray-600 mb-8">
+              <p>Una vez realizado el pago, tu donación será registrada automáticamente.</p>
+              <p>¡Gracias por tu solidaridad!</p>
+            </div>
+            
+            <button class="bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-semibold py-3 px-8 rounded-lg hover:shadow-lg transition-all duration-200">
+              Confirmar pago
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - Payment Buttons -->
+      <div class="animate-on-scroll delay-3">
+        <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+          <h4 class="text-lg font-semibold mb-6 text-center">Proveedores de Pago</h4>
+          
+          <!-- PayPal Button -->
+          <div class="mb-6">
+            <div class="provider-button bg-yellow-400 hover:bg-yellow-500 transition-colors duration-200 rounded-lg p-4 cursor-pointer border border-yellow-300" data-provider="paypal">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <img src="/logos/icon_paypal.svg" alt="PayPal" class="w-8 h-8">
+                  <div>
+                    <div class="font-semibold text-gray-800">PayPal</div>
+                    <div class="text-sm text-gray-600">Pagos internacionales</div>
+                  </div>
+                </div>
+                <div class="text-gray-600">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PagoPlux Button -->
+          <div class="mb-6">
+            <div class="provider-button bg-blue-600 hover:bg-blue-700 transition-colors duration-200 rounded-lg p-4 cursor-pointer border border-blue-500" data-provider="pagoplux">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <img src="/logos/plux.png" alt="PagoPlux" class="w-10 h-8">
+                  <div>
+                    <div class="font-semibold text-white">PagoPlux</div>
+                    <div class="text-sm text-blue-100">Tarjetas en Ecuador</div>
+                  </div>
+                </div>
+                <div class="text-blue-100">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payphone Button -->
+          <div class="mb-6">
+            <div class="provider-button bg-gray-800 hover:bg-gray-900 transition-colors duration-200 rounded-lg p-4 cursor-pointer border border-gray-700" data-provider="payphone">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <img src="/logos/icon_payphone.avif" alt="Payphone" class="w-8 h-8">
+                  <div>
+                    <div class="font-semibold text-white">Payphone</div>
+                    <div class="text-sm text-gray-300">App y tarjetas</div>
+                  </div>
+                </div>
+                <div class="text-gray-300">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DeUna Button -->
+          <div class="mb-6">
+            <div class="provider-button bg-green-500 hover:bg-green-600 transition-colors duration-200 rounded-lg p-4 cursor-pointer border border-green-400" data-provider="deuna">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <img src="/logos/icon_deuna.png" alt="DeUna" class="w-8 h-8">
+                  <div>
+                    <div class="font-semibold text-white">DeUna</div>
+                    <div class="text-sm text-green-100">QR automático</div>
+                  </div>
+                </div>
+                <div class="text-green-100">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .content-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+  }
+  
+  .content-section.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+  
+  .content-section.hidden {
+    opacity: 0;
+    transform: translateX(-50px);
+    pointer-events: none;
+  }
+  
+  .payphone-method-btn.active {
+    border-color: #f97316;
+    background-color: #fff7ed;
+  }
+  
+  .payphone-method-btn:not(.active) {
+    border-color: #d1d5db;
+    background-color: #f9fafb;
+  }
+  
+  .card-type-visa {
+    background: linear-gradient(45deg, #1a1f71, #00539c);
+    color: white;
+  }
+  
+  .card-type-mastercard {
+    background: linear-gradient(45deg, #eb001b, #f79e1b);
+    color: white;
+  }
+  
+  .card-type-amex {
+    background: linear-gradient(45deg, #006fcf, #009cde);
+    color: white;
+  }
+</style>
+
+<script>
+  import Cleave from 'cleave.js';
+  import QRCode from 'qrcode';
+  
+  document.addEventListener('astro:page-load', () => {
+    const providerButtons = document.querySelectorAll('.provider-button');
+    const contentSections = document.querySelectorAll('.content-section');
+    
+    let carouselInterval;
+    let currentProviderIndex = 0;
+    const providers = ['deuna', 'paypal', 'pagoplux', 'payphone'];
+    let isUserInteracting = false;
+
+    // Generate real QR code
+    async function generateQRCode() {
+      const qrElement = document.getElementById('qr-code');
+      if (qrElement) {
+        try {
+          const qrDataURL = await QRCode.toDataURL('https://donar.baq.ec', {
+            width: 112,
+            height: 112,
+            margin: 1,
+            color: {
+              dark: '#000000',
+              light: '#FFFFFF'
+            }
+          });
+          qrElement.src = qrDataURL;
+        } catch (err) {
+          console.error('Error generating QR code:', err);
+        }
+      }
+    }
+
+    // Initialize Cleave.js for card formatting
+    function initializeCardFormatters() {
+      // Card number formatter
+      new Cleave('#card-number', {
+        creditCard: true,
+        onCreditCardTypeChanged: function (type) {
+          const cardTypeElement = document.getElementById('card-type');
+          if (cardTypeElement) {
+            cardTypeElement.className = 'w-8 h-5 rounded flex items-center justify-center text-xs';
+            
+            switch(type) {
+              case 'visa':
+                cardTypeElement.classList.add('card-type-visa');
+                cardTypeElement.textContent = 'VISA';
+                break;
+              case 'mastercard':
+                cardTypeElement.classList.add('card-type-mastercard');
+                cardTypeElement.textContent = 'MC';
+                break;
+              case 'amex':
+                cardTypeElement.classList.add('card-type-amex');
+                cardTypeElement.textContent = 'AMEX';
+                break;
+              default:
+                cardTypeElement.classList.add('bg-gray-200');
+                cardTypeElement.textContent = '?';
+            }
+          }
+        }
+      });
+
+      // Expiry date formatter
+      new Cleave('#card-expiry', {
+        date: true,
+        datePattern: ['m', 'y']
+      });
+
+      // CVV formatter
+      new Cleave('#card-cvv', {
+        numeral: true,
+        numeralPositiveOnly: true,
+        numeralIntegerScale: 4
+      });
+    }
+
+    function showContent(provider) {
+      // Remove active class from all sections
+      contentSections.forEach(section => {
+        section.classList.remove('active');
+        section.classList.add('hidden');
+      });
+
+      // Show the selected provider's content
+      const targetContent = document.getElementById(`${provider}-content`);
+      if (targetContent) {
+        targetContent.classList.remove('hidden');
+        // Use setTimeout to ensure the transition works
+        setTimeout(() => {
+          targetContent.classList.add('active');
+        }, 50);
+      }
+
+      // Update button styles
+      providerButtons.forEach(button => {
+        button.classList.remove('ring-2', 'ring-donaya-turquoise');
+      });
+
+      // Highlight selected button
+      const selectedButton = document.querySelector(`[data-provider="${provider}"]`);
+      if (selectedButton) {
+        selectedButton.classList.add('ring-2', 'ring-donaya-turquoise');
+      }
+
+      // Initialize card formatters if Payphone is selected
+      if (provider === 'payphone') {
+        setTimeout(() => {
+          initializeCardFormatters();
+        }, 100);
+      }
+
+      // Generate QR code if DeUna is selected
+      if (provider === 'deuna') {
+        setTimeout(() => {
+          generateQRCode();
+        }, 100);
+      }
+    }
+
+    function startCarousel() {
+      if (isUserInteracting) return;
+      
+      carouselInterval = setInterval(() => {
+        if (isUserInteracting) return;
+        
+        const provider = providers[currentProviderIndex];
+        showContent(provider);
+        
+        currentProviderIndex = (currentProviderIndex + 1) % providers.length;
+      }, 4000);
+    }
+
+    function stopCarousel() {
+      if (carouselInterval) {
+        clearInterval(carouselInterval);
+        carouselInterval = null;
+      }
+    }
+
+    function handleUserInteraction() {
+      isUserInteracting = true;
+      stopCarousel();
+    }
+
+    // Add click listeners to provider buttons
+    providerButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        handleUserInteraction();
+        const provider = button.getAttribute('data-provider');
+        showContent(provider);
+      });
+    });
+
+    // Payphone method selection
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.payphone-method-btn')) {
+        const btn = e.target.closest('.payphone-method-btn');
+        const method = btn.getAttribute('data-method');
+        
+        // Update button states
+        document.querySelectorAll('.payphone-method-btn').forEach(b => {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+        
+        // Show/hide card section
+        const cardSection = document.getElementById('card-payment-section');
+        if (cardSection) {
+          if (method === 'card') {
+            cardSection.style.display = 'block';
+          } else {
+            cardSection.style.display = 'none';
+          }
+        }
+      }
+    });
+
+    // Start carousel automatically with DeUna first
+    showContent('deuna');
+    startCarousel();
+
+    // Pause carousel on hover
+    const leftColumn = document.querySelector('.animate-on-scroll.delay-2');
+    if (leftColumn) {
+      leftColumn.addEventListener('mouseenter', stopCarousel);
+      leftColumn.addEventListener('mouseleave', () => {
+        if (!isUserInteracting) {
+          startCarousel();
+        }
+      });
+    }
+  });
+</script>

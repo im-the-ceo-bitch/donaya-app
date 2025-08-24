@@ -1,0 +1,72 @@
+---
+import PuzzlePiece from '../molecules/PuzzlePiece.astro';
+
+// Configuración del rompecabezas - 9 piezas en una cuadrícula 3x3
+const puzzlePieces = [
+  { id: 'piece-1', isComplete: true, position: { x: 10, y: 10 }, size: 60 },
+  { id: 'piece-2', isComplete: true, position: { x: 40, y: 10 }, size: 60 },
+  { id: 'piece-3', isComplete: false, position: { x: 70, y: 10 }, size: 60 },
+  { id: 'piece-4', isComplete: true, position: { x: 10, y: 40 }, size: 60 },
+  { id: 'piece-5', isComplete: true, position: { x: 40, y: 40 }, size: 60 },
+  { id: 'piece-6', isComplete: false, position: { x: 70, y: 40 }, size: 60 },
+  { id: 'piece-7', isComplete: false, position: { x: 10, y: 70 }, size: 60 },
+  { id: 'piece-8', isComplete: false, position: { x: 40, y: 70 }, size: 60 },
+  { id: 'piece-9', isComplete: false, position: { x: 70, y: 70 }, size: 60 },
+];
+---
+
+<div class="bg-donaya-orange rounded-xl p-8 text-white relative overflow-hidden">
+  <h2 class="text-2xl font-bold mb-6 text-center">
+    Tu eres la pieza que falta para acabar con la desnutrición
+  </h2>
+
+  <!-- Rompecabezas interactivo -->
+  <div class="relative w-full h-64 mb-8 bg-white/10 rounded-lg flex items-center justify-center">
+    <div class="relative w-48 h-48">
+      {puzzlePieces.map(piece => (
+        <PuzzlePiece 
+          id={piece.id}
+          isComplete={piece.isComplete}
+          position={piece.position}
+          size={piece.size}
+        />
+      ))}
+      
+      <!-- Imagen central del rompecabezas -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="w-32 h-32 bg-white/20 rounded-full flex items-center justify-center">
+          <div class="text-4xl">👵👶</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tarjeta de estadísticas -->
+  <div class="bg-white rounded-lg p-6 text-center">
+    <div class="text-3xl font-bold text-donaya-orange mb-2">10</div>
+    <div class="text-lg font-semibold text-donaya-orange mb-2">Personas alimentadas</div>
+    <p class="text-gray-600 text-sm mb-3">
+      Con un solo $1 alimentas a una persona durante todo un día.
+    </p>
+    <div class="text-sm font-medium text-donaya-orange">
+      Proyección anual: 120 personas alimentadas al año
+    </div>
+  </div>
+</div>
+
+<script>
+  // Animación del rompecabezas
+  document.addEventListener('astro:page-load', () => {
+    const pieces = document.querySelectorAll('.puzzle-piece');
+    
+    pieces.forEach((piece, index) => {
+      setTimeout(() => {
+        piece.classList.add('animate-pulse');
+        setTimeout(() => {
+          piece.classList.remove('animate-pulse');
+        }, 1000);
+      }, index * 200);
+    });
+  });
+</script>
+

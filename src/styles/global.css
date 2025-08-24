@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --gradient-purple-blue: linear-gradient(135deg, #7928CA 0%, #0070F3 100%);
+  --gradient-donaya: linear-gradient(135deg, #2EB386 0%, #FAA22B 100%);
 }
 
 html {
@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  @apply font-sans text-payflo-dark;
+  @apply font-sans text-donaya-dark;
   position: relative; /* For scroll progress bar */
 }
 
@@ -80,7 +80,7 @@ body {
 
 .gradient-text {
   @apply bg-clip-text text-transparent;
-  background-image: var(--gradient-purple-blue);
+  background-image: var(--gradient-donaya);
 }
 
 /* ===== Button Styles & Effects ===== */
@@ -102,7 +102,7 @@ body {
 }
 
 .btn:focus {
-  outline: 2px solid theme('colors.payflo-purple');
+  outline: 2px solid theme('colors.donaya-turquoise');
   outline-offset: 2px;
 }
 
@@ -119,11 +119,11 @@ body {
 }
 
 .btn-primary {
-  @apply bg-payflo-purple text-white hover:bg-opacity-90;
+  @apply bg-donaya-turquoise text-white hover:bg-opacity-90;
 }
 
 .btn-secondary {
-  @apply bg-white text-payflo-dark border border-gray-200 hover:bg-gray-50;
+  @apply bg-white text-donaya-dark border border-gray-200 hover:bg-gray-50;
 }
 
 .container-custom {
@@ -168,7 +168,7 @@ nav a::after {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: theme('colors.payflo-purple');
+  background-color: theme('colors.donaya-turquoise');
   transition: width 0.3s ease;
 }
 
@@ -178,7 +178,7 @@ nav a:focus::after {
 }
 
 .active-nav-link {
-  @apply text-payflo-purple;
+  @apply text-donaya-turquoise;
 }
 
 .active-nav-link::after {
@@ -191,10 +191,40 @@ nav a:focus::after {
   top: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(to right, theme('colors.payflo-purple'), theme('colors.payflo-blue'));
+  background: linear-gradient(to right, theme('colors.donaya-turquoise'), theme('colors.donaya-orange'));
   z-index: 100;
   width: 0%;
   transition: width 0.1s ease;
+}
+
+/* ===== Puzzle Animations ===== */
+.puzzle-piece {
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.puzzle-piece:hover {
+  transform: scale(1.1) !important;
+  z-index: 10;
+}
+
+.puzzle-piece.complete {
+  animation: completePuzzle 0.6s ease-out;
+}
+
+@keyframes completePuzzle {
+  0% {
+    transform: scale(0.8) rotate(-10deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
 }
 
 /* ===== FAQ Accordion Animations ===== */
@@ -223,7 +253,7 @@ nav a:focus::after {
 }
 
 .faq-summary-open {
-  @apply text-payflo-purple;
+  @apply text-donaya-turquoise;
 }
 
 /* ===== Mobile Menu Animations ===== */
@@ -274,7 +304,7 @@ nav a:focus::after {
 
 /* ===== Testimonial Card Effects ===== */
 .testimonial-card {
-  @apply bg-payflo-gray rounded-xl p-8 transition-all duration-300;
+  @apply bg-donaya-gray rounded-xl p-8 transition-all duration-300;
 }
 
 .testimonial-card:hover,
@@ -285,7 +315,7 @@ nav a:focus::after {
 
 /* ===== Focus Indicators ===== */
 *:focus {
-  outline: 2px solid theme('colors.payflo-purple');
+  outline: 2px solid theme('colors.donaya-turquoise');
   outline-offset: 2px;
 }
 
@@ -299,7 +329,7 @@ nav a:focus::after {
   position: absolute;
   top: -40px;
   left: 6px;
-  background: theme('colors.payflo-purple');
+  background: theme('colors.donaya-turquoise');
   color: white;
   padding: 8px;
   border-radius: 4px;

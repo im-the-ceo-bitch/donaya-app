@@ -1,0 +1,50 @@
+<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="200" rx="10" fill="#f4f7fa" />
+  
+  <!-- Decorative Elements -->
+  <circle cx="50" cy="50" r="30" fill="#2EB386" opacity="0.1" />
+  <circle cx="250" cy="150" r="40" fill="#FAA22B" opacity="0.1" />
+  
+  <!-- Main Content - Social Commerce -->
+  <rect x="40" y="40" width="220" height="120" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1.5" />
+  
+  <!-- Header -->
+  <rect x="40" y="40" width="220" height="30" rx="8" fill="#F9FAFB" stroke="#E2E8F0" stroke-width="1.5" />
+  
+  <!-- Header Elements -->
+  <circle cx="55" cy="55" r="5" fill="#2EB386" />
+  <rect x="70" y="52" width="80" height="6" rx="3" fill="#718096" />
+  <rect x="200" y="52" width="40" height="6" rx="3" fill="#2EB386" />
+  
+  <!-- Shopping Bag -->
+  <g transform="translate(120, 90) scale(0.8)">
+    <path d="M6 2h12l-1.5 6h-9L6 2z" fill="#FAA22B" />
+    <path d="M4 8h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z" fill="#FAA22B" />
+    <circle cx="8" cy="12" r="1" fill="white" />
+    <circle cx="12" cy="12" r="1" fill="white" />
+    <circle cx="16" cy="12" r="1" fill="white" />
+  </g>
+  
+  <!-- Product Items -->
+  <rect x="60" y="100" width="20" height="15" rx="2" fill="#2EB386" opacity="0.7" />
+  <rect x="85" y="100" width="20" height="15" rx="2" fill="#FF9500" opacity="0.7" />
+  <rect x="110" y="100" width="20" height="15" rx="2" fill="#2EB386" opacity="0.7" />
+  <rect x="135" y="100" width="20" height="15" rx="2" fill="#FAA22B" opacity="0.7" />
+  
+  <!-- Price Tags -->
+  <g transform="translate(70, 125) scale(0.6)">
+    <rect x="0" y="0" width="20" height="8" rx="2" fill="#2EB386" />
+    <text x="10" y="6" font-family="Arial, sans-serif" font-size="6" fill="white" text-anchor="middle">$5</text>
+  </g>
+  
+  <g transform="translate(95, 125) scale(0.6)">
+    <rect x="0" y="0" width="20" height="8" rx="2" fill="#FF9500" />
+    <text x="10" y="6" font-family="Arial, sans-serif" font-size="6" fill="white" text-anchor="middle">$3</text>
+  </g>
+  
+  <!-- Social Impact Icon -->
+  <g transform="translate(200, 110) scale(0.5)">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#2EB386" />
+  </g>
+</svg>

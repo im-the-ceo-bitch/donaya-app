@@ -1,0 +1,30 @@
+---
+import DonationForm from '../organisms/DonationForm.astro';
+import PuzzleImpact from '../organisms/PuzzleImpact.astro';
+---
+
+<section class="py-20 bg-gradient-to-b from-white to-donaya-gray/30">
+  <div class="container-custom">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Experiencia de <span class="gradient-text">Donación</span> Interactiva
+      </h2>
+      <p class="text-xl text-gray-600">
+        Descubre cómo tu contribución completa el rompecabezas del impacto social
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- Formulario de donación -->
+      <div class="animate-on-scroll delay-0">
+        <DonationForm />
+      </div>
+
+      <!-- Rompecabezas e impacto -->
+      <div class="animate-on-scroll delay-1">
+        <PuzzleImpact />
+      </div>
+    </div>
+  </div>
+</section>
+

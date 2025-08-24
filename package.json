@@ -1,5 +1,5 @@
 {
-  "name": "payflo-dev-astro",
+  "name": "donaya-astro",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -16,6 +16,8 @@
     "@iconify-json/ph": "^1.2.2",
     "astro": "^5.7.0",
     "astro-icon": "^1.0.0",
+    "cleave.js": "^1.6.0",
+    "qrcode": "^1.5.4",
     "tailwindcss": "^3.3.6"
   },
   "devDependencies": {

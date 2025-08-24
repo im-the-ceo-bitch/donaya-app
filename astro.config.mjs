@@ -5,7 +5,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://payflo.dev',
+  site: 'https://donaya.dev',
   output: 'static',
   prefetch: true,
   integrations: [
@@ -18,6 +18,7 @@ export default defineConfig({
           "lightning-duotone",
           "globe-duotone",
           "users-duotone",
+          "users-three-duotone",
           "buildings-duotone",
           "briefcase-duotone",
           "check-circle-duotone",
@@ -30,6 +31,7 @@ export default defineConfig({
           "twitter-logo-duotone",
           "github-logo-duotone",
           "currency-dollar-duotone",
+          "money-duotone",
           "arrow-left-duotone",
           "arrow-right",
           "file-search",
@@ -45,7 +47,12 @@ export default defineConfig({
           "lock-key-duotone",
           "certificate-duotone",
           "lifebuoy-duotone",
-          "handshake-duotone"
+          "handshake-duotone",
+          "heart-duotone",
+          "house-duotone",
+          "graduation-cap-duotone",
+          "first-aid-kit-duotone",
+          "shopping-bag-duotone"
         ]
       }
     }),

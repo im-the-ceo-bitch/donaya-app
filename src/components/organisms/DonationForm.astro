@@ -1,0 +1,157 @@
+---
+import Button from '../atoms/Button.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="bg-white rounded-xl p-5 shadow-lg w-full h-full flex flex-col justify-center">
+
+  
+  <!-- Frecuencia de donación -->
+  <div class="grid grid-cols-2 gap-3 mb-5">
+          <button class="p-4 rounded-lg border-2 border-gray-200 bg-white text-gray-700 hover:border-donaya-orange transition-all duration-200" data-frequency="once">
+        <div class="flex items-center justify-center gap-2">
+          <Icon name="ph:heart-duotone" class="w-5 h-5" />
+          <span class="font-medium text-sm">Única vez</span>
+        </div>
+      </button>
+      <button class="p-4 rounded-lg border-2 border-donaya-turquoise bg-donaya-turquoise text-white transition-all duration-200" data-frequency="monthly">
+        <div class="flex items-center justify-center gap-2">
+          <Icon name="ph:calendar-duotone" class="w-5 h-5" />
+          <span class="font-medium text-sm">Mensual</span>
+        </div>
+      </button>
+  </div>
+
+  <!-- Montos de donación -->
+  <div class="grid grid-cols-2 gap-3 mb-5">
+    <button class="p-3 rounded-lg border-2 border-gray-200 bg-white text-gray-700 hover:border-donaya-orange transition-all duration-200" data-amount="2">
+      <span class="font-semibold">USD 2</span>
+    </button>
+    <button class="p-3 rounded-lg border-2 border-donaya-orange bg-donaya-orange text-white transition-all duration-200" data-amount="10">
+      <span class="font-semibold">USD 10</span>
+    </button>
+    <button class="p-3 rounded-lg border-2 border-gray-200 bg-white text-gray-700 hover:border-donaya-orange transition-all duration-200" data-amount="30">
+      <span class="font-semibold">USD 30</span>
+    </button>
+    <button class="p-3 rounded-lg border-2 border-gray-200 bg-white text-gray-700 hover:border-donaya-orange transition-all duration-200" data-amount="50">
+      <span class="font-semibold">USD 50</span>
+    </button>
+  </div>
+
+  <!-- Monto personalizado -->
+  <div class="flex gap-2 mb-4">
+    <button class="px-4 py-3 rounded-lg border-2 border-donaya-orange bg-donaya-orange text-white font-medium transition-all duration-200" data-custom="true">
+      Otro
+    </button>
+    <input 
+      type="number" 
+      placeholder="Monto" 
+      class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-donaya-orange transition-colors duration-200"
+      min="1"
+      max="2343"
+      step="0.01"
+      id="custom-amount-input"
+    />
+  </div>
+
+  <!-- Botón de donar -->
+  <Button variant="primary" size="lg" class="w-full" id="donate-btn">
+    Donar ahora
+  </Button>
+</div>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    let selectedFrequency = 'monthly';
+    let selectedAmount = 10;
+    let customAmount = '';
+
+    // Frecuencia de donación
+    const frequencyBtns = document.querySelectorAll('[data-frequency]');
+    frequencyBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        frequencyBtns.forEach(b => {
+          b.classList.remove('border-donaya-turquoise', 'bg-donaya-turquoise', 'text-white');
+          b.classList.add('border-gray-200', 'bg-white', 'text-gray-700');
+        });
+        btn.classList.remove('border-gray-200', 'bg-white', 'text-gray-700');
+        btn.classList.add('border-donaya-turquoise', 'bg-donaya-turquoise', 'text-white');
+        selectedFrequency = btn.getAttribute('data-frequency');
+        updateImpact();
+      });
+    });
+
+    // Montos de donación
+    const amountBtns = document.querySelectorAll('[data-amount]');
+    amountBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        amountBtns.forEach(b => {
+          b.classList.remove('border-donaya-orange', 'bg-donaya-orange', 'text-white');
+          b.classList.add('border-gray-200', 'bg-white', 'text-gray-700');
+        });
+        btn.classList.remove('border-gray-200', 'bg-white', 'text-gray-700');
+        btn.classList.add('border-donaya-orange', 'bg-donaya-orange', 'text-white');
+        selectedAmount = parseInt(btn.getAttribute('data-amount'));
+        updateImpact();
+      });
+    });
+
+    // Monto personalizado
+    const customBtn = document.querySelector('[data-custom]');
+    const customInput = document.querySelector('input[type="number"]');
+    
+    customBtn.addEventListener('click', () => {
+      amountBtns.forEach(b => {
+        b.classList.remove('border-donaya-orange', 'bg-donaya-orange', 'text-white');
+        b.classList.add('border-gray-200', 'bg-white', 'text-gray-700');
+      });
+      customInput.focus();
+    });
+
+    customInput.addEventListener('input', (e) => {
+      let value = parseFloat(e.target.value);
+      
+      // Validar límites
+      if (value < 1) {
+        value = 1;
+        e.target.value = 1;
+      } else if (value > 2343) {
+        value = 2343;
+        e.target.value = 2343;
+      }
+      
+      customAmount = e.target.value;
+      if (customAmount && !isNaN(value)) {
+        selectedAmount = value;
+        updateImpact();
+      }
+    });
+
+    // Validar al perder el foco
+    customInput.addEventListener('blur', (e) => {
+      let value = parseFloat(e.target.value);
+      
+      if (isNaN(value) || value < 1) {
+        e.target.value = 1;
+        selectedAmount = 1;
+        updateImpact();
+      } else if (value > 2343) {
+        e.target.value = 2343;
+        selectedAmount = 2343;
+        updateImpact();
+      }
+    });
+
+    function updateImpact() {
+      // Disparar evento personalizado para actualizar la visualización
+      const event = new CustomEvent('donation-updated', {
+        detail: {
+          frequency: selectedFrequency,
+          amount: selectedAmount,
+          customAmount: customAmount
+        }
+      });
+      document.dispatchEvent(event);
+    }
+  });
+</script>
